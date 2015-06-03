@@ -1,5 +1,4 @@
 require './pythonicinput'
-require 'active_support/core_ext/enumerable.rb'
 
 def crown_and_anchor
   bets = {
@@ -12,9 +11,8 @@ def crown_and_anchor
     "heart" => {bets: 0, rolls: 0},
   }
 
-
   die_options = ["crown", "anchor", "diamond", "spade", "club", "heart"]
-    
+
     for i in die_options
       value = pythonic_input("How much would you like to wager on #{i}?").to_i
       bets[i][:bets] = value
@@ -41,7 +39,7 @@ def crown_and_anchor
           puts x
           puts bets[i][:bets]
           #puts bets[i][:rolls]
-          total_money_won = bets[i][:bets] * bets[i][:rolls] 
+          total_money_won = bets[i][:bets] * bets[i][:rolls]
           earnings.push(total_money_won)
       end
 
@@ -56,7 +54,7 @@ def crown_and_anchor
       x = i, bets[i]
       puts x
       puts bets[i][:rolls]
-      total_money_lost = bets[i][:bets] 
+      total_money_lost = bets[i][:bets]
       loses.push(total_money_lost)
     end
   end
@@ -75,7 +73,7 @@ def play_again
   again = pythonic_input("Would you like to play again? Y/N").downcase.strip
     if again == "y"
       crown_and_anchor()
-  
+
     end
 end
 
